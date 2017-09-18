@@ -26,6 +26,7 @@ function get_user_agent()
 end
 
 --打开规则文件并读到一个TABLE里面,返回这个TABLE
+--(..)连接两个字符串, RULE_PATH..'/'..rulefilename = RULE_PATH/rulefilename
 function get_rule(rulefilename)
     local io = require 'io'
     local RULE_PATH = config_rule_dir
