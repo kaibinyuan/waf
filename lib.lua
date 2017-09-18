@@ -1,4 +1,4 @@
---waf core lib
+--把配置文件include进来,require是Lua语言的写法
 require 'config'
 
 --Get the client IP
@@ -25,7 +25,7 @@ function get_user_agent()
     return USER_AGENT
 end
 
---Get WAF rule
+--打开规则文件并读到一个TABLE里面,返回这个TABLE
 function get_rule(rulefilename)
     local io = require 'io'
     local RULE_PATH = config_rule_dir
