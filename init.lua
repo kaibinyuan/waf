@@ -6,7 +6,7 @@ require 'lib'
 local rulematch = ngx.re.find
 local unescape = ngx.unescape_uri
 
---allow white ip
+--IP白名单检测,如果发现规则库 whiteip.rule 里面有这个ip,直接返回
 function white_ip_check()
      if config_white_ip_check == "on" then
         local IP_WHITE_RULE = get_rule('whiteip.rule')
