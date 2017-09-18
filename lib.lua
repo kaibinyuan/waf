@@ -41,7 +41,7 @@ function get_rule(rulefilename)
     return(RULE_TABLE)
 end
 
---WAF log record for json,(use logstash codec => json)
+--把日志写成json的,这样Logstash收集的时候直接codec => json
 function log_record(method,url,data,ruletag)
     local cjson = require("cjson")
     local io = require 'io'
