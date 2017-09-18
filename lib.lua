@@ -72,7 +72,7 @@ function log_record(method,url,data,ruletag)
     file:close()
 end
 
---WAF return
+--除了需要直接返回403之外,提供了两种方法输出一个自定义页面或者跳转到某个页面
 function waf_output()
     if config_waf_output == "redirect" then
         ngx.redirect(config_waf_redirect_url, 301)
