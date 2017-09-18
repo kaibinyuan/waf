@@ -22,7 +22,7 @@ function white_ip_check()
     end
 end
 
---deny black ip
+--IP黑名单检测,如果发现规则库 blackip.rule 里面有这个ip，直接返回403并返回
 function black_ip_check()
      if config_black_ip_check == "on" then
         local IP_BLACK_RULE = get_rule('blackip.rule')
@@ -41,7 +41,7 @@ function black_ip_check()
     end
 end
 
---allow white url
+--URL白名单,检测,如果发现规则库 writeurl.rule 有对应的url直接返回
 function white_url_check()
     if config_white_url_check == "on" then
         local URL_WHITE_RULES = get_rule('writeurl.rule')
@@ -81,7 +81,7 @@ function cc_attack_check()
     return false
 end
 
---deny cookie
+--对提交的Cookie进行检测
 function cookie_attack_check()
     if config_cookie_check == "on" then
         local COOKIE_RULES = get_rule('cookie.rule')
@@ -101,7 +101,7 @@ function cookie_attack_check()
     return false
 end
 
---deny url
+--对请求的URL进行检测
 function url_attack_check()
     if config_url_check == "on" then
         local URL_RULES = get_rule('url.rule')
@@ -119,7 +119,7 @@ function url_attack_check()
     return false
 end
 
---deny url args
+--对请求的URL参数进行检测
 function url_args_attack_check()
     if config_url_args_check == "on" then
         local ARGS_RULES = get_rule('args.rule')
@@ -143,7 +143,7 @@ function url_args_attack_check()
     end
     return false
 end
---deny user agent
+--对用户的User Agent进行检测
 function user_agent_attack_check()
     if config_user_agent_check == "on" then
         local USER_AGENT_RULES = get_rule('useragent.rule')
